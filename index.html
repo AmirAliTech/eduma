@@ -1,0 +1,2265 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap demo</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <link rel="stylesheet" href="style.css" />
+
+    <style>
+      @media screen and (max-width: 1500px) {
+        .search-modal {
+          left: 28%;
+        }
+      }
+
+      @media screen and (max-width: 900px) {
+        .thirty-percent {
+          font-size: 100px;
+        }
+      }
+
+      @media screen and (max-width: 700px) {
+        .navbar-brand img {
+          width: 80px;
+          height: 44px;
+        }
+        .login-height {
+          width: 80% !important;
+          height: 95%;
+        }
+      }
+      @media screen and (max-width: 577px) {
+        .search-modal {
+          left: 0%;
+          width: 80%;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="custom-cursor d-none">
+      <i class="fa fa-times"></i>
+    </div>
+    <header class=" ">
+      <!-- login register forms start -->
+
+      <section
+        class="container-fluid position-fixed d-flex overflow-y-scroll justify-content-center align-items-center w-100 quick-start z-2 d-none"
+        id="login-register"
+      >
+        <div
+          class="bg-white rounded-4 z-3 login-height"
+          style="width: 480px; height: 95%"
+          id="register-row"
+        >
+          <div class="row h-100 bg-white rounded-4 overflow-y-auto pt-5">
+            <div
+              class="col-12 h-100 rounded-4 px-5 overflow-y- d-block"
+              id="LoginForm"
+            >
+              <div
+                class="d-flex flex-column justify-content-start align-items-center w-100 h-100"
+              >
+                <h4 class="w-100 text-start roboto-slab text-black fw-bold">
+                  Login with your site account
+                </h4>
+                <form action="/" class="w-100">
+                  <p class="w-100 login-input rounded-2 mt-4 py-2 px-4">
+                    <input
+                      type="text"
+                      placeholder="Username or email"
+                      class="w-100 border-0 outline-none"
+                    />
+                  </p>
+                  <p
+                    class="w-100 login-input rounded-2 mt-4 py-2 px-4 d-flex align-items-center justify-content-center"
+                  >
+                    <input
+                      type="password"
+                      placeholder="Password"
+                      id="showpassword"
+                      class="w-100 border-0 outline-none"
+                    />
+                    <i
+                      class="fa-regular fa-eye cursor-pointer text-secondary"
+                      onclick="passwordshow()"
+                      id="eye"
+                    ></i>
+                  </p>
+                  <div class="d-flex justify-content-between mt-5">
+                    <label
+                      for="popupRememberme"
+                      class="cursor-pointer d-flex align-items-center justify-content-center gap-2"
+                      ><input
+                        name="rememberme"
+                        type="checkbox"
+                        value="forever"
+                        id="popupRememberme"
+                        class="cursor-pointer"
+                      />
+                      Remember Me
+                    </label>
+                    <a href="/" class="text-decoration-none"
+                      >Lost your password?
+                    </a>
+                  </div>
+                  <div
+                    class="d-flex justify-content-center align-items-center mt-3 w-100"
+                  >
+                    <button class="btn shop-btn mx-2 py-2 fw-bold w-100">
+                      LOGIN
+                    </button>
+                  </div>
+                  <div class="d-flex mt-3 gap-2">
+                    <span>Not a member yet? </span
+                    ><a
+                      href="#"
+                      class="text-decoration-none"
+                      onclick="openRegister()"
+                      >Register now</a
+                    >
+                  </div>
+                  <div
+                    class="d-flex flex-column mt-3 align-items-center justify-content-center"
+                  >
+                    <p class="text-center mb-0">
+                      Wanna see how Student, Instructor, or Admin look?
+                    </p>
+                    <a href="/" class="text-decoration-none"
+                      >Click here to access Demo Account</a
+                    >
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div
+              class="col-12 h-100 rounded-4 px-5 overflow-y-auto d-none"
+              id="registerForm"
+            >
+              <div
+                class="d-flex flex-column justify-content-start align-items-center w-100 h-100"
+              >
+                <h4 class="w-100 text-start roboto-slab text-black fw-bold">
+                  Login with your site account
+                </h4>
+                <form action="/" class="w-100">
+                  <p class="w-100 login-input rounded-2 mt-4 py-2 px-4">
+                    <input
+                      type="text"
+                      placeholder="Email"
+                      class="w-100 border-0 outline-none"
+                    />
+                  </p>
+                  <p class="w-100 login-input rounded-2 mt-4 py-2 px-4">
+                    <input
+                      type="text"
+                      placeholder="Username"
+                      class="w-100 border-0 outline-none"
+                    />
+                  </p>
+                  <p
+                    class="w-100 login-input rounded-2 mt-4 py-2 px-4 d-flex align-items-center justify-content-center"
+                  >
+                    <input
+                      type="password"
+                      placeholder="Password"
+                      id="showpassword2"
+                      class="w-100 border-0 outline-none"
+                    />
+                    <i
+                      class="fa-regular fa-eye cursor-pointer text-secondary"
+                      onclick="passwordshow()"
+                      id="eye"
+                    ></i>
+                  </p>
+                  <p
+                    class="w-100 login-input rounded-2 mt-4 py-2 px-4 d-flex align-items-center justify-content-center"
+                  >
+                    <input
+                      type="password"
+                      placeholder=" Repeat Password"
+                      id="showpassword3"
+                      class="w-100 border-0 outline-none"
+                    />
+                    <i
+                      class="fa-regular fa-eye cursor-pointer text-secondary"
+                      onclick="passwordshow()"
+                      id="eye2"
+                    ></i>
+                  </p>
+                  <div class="d-flex justify-content-between mt-5">
+                    <label
+                      for="popupRememberme"
+                      class="cursor-pointer d-flex align-items-center justify-content-center gap-2"
+                      ><input
+                        name="rememberme"
+                        type="checkbox"
+                        value="forever"
+                        id="popupRememberme"
+                        class="cursor-pointer"
+                      />
+                      Remember Me
+                    </label>
+                    <a href="/" class="text-decoration-none"
+                      >Lost your password?
+                    </a>
+                  </div>
+                  <div
+                    class="d-flex justify-content-center align-items-center mt-3 w-100"
+                  >
+                    <button class="btn shop-btn mx-2 py-2 fw-bold w-100">
+                      LOGIN
+                    </button>
+                  </div>
+                  <div class="d-flex mt-3 gap-2">
+                    <span>Are you a member? </span
+                    ><a
+                      href="#"
+                      class="text-decoration-none"
+                      onclick="openLogin()"
+                      >Login now</a
+                    >
+                  </div>
+                  <div
+                    class="d-flex flex-column mt-3 align-items-center justify-content-center"
+                  >
+                    <p class="text-center mb-0">
+                      Wanna see how Student, Instructor, or Admin look?
+                    </p>
+                    <a href="/" class="text-decoration-none"
+                      >Click here to access Demo Account</a
+                    >
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="position-fixed w-100 h-100 close-view"
+          onclick="viewRemove()"
+        ></div>
+      </section>
+
+      <!-- login register forms end -->
+
+      <!-- quick view start -->
+
+      <section
+        class="container-fluid position-fixed d-flex overflow-y-auto justify-content-center align-items-center w-100 quick-start z-2 d-none"
+        id="quickview"
+      >
+        <div
+          class="bg-white overflow-y-auto overflow-x-hidden rounded-4 z-1"
+          style="max-width: 1290px; height: 95%"
+        >
+          <div class="row h-100 bg-white rounded-4 overflow-x-hidden">
+            <div class="col-12 col-lg-6 h-100 rounded-4">
+              <div
+                class="d-flex align-items-center justify-content-center w-100 h-100"
+              >
+                <img
+                  src="assets/shop-3.webp"
+                  alt=""
+                  width="90%"
+                  height="80%"
+                  class="rounded-4"
+                />
+              </div>
+            </div>
+            <div class="col-12 col-lg-6 bg-white h-100 rounded-4">
+              <div
+                class="d-flex align-items-center justify-content-center w-100 h-100"
+              >
+                <div
+                  class="d-flex flex-column gap-2"
+                  style="width: 90%; height: 80%"
+                >
+                  <h1 class="roboto-slab fw-bold">Van Gogh Notebook</h1>
+                  <h4>$24.00</h4>
+                  <hr class="container" />
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Maecenas pretium pretium iaculis. Nullam vestibulum
+                    vestibulum libero. Phasellus ut pulvinar mi. Donec id
+                    pretium ante.
+                  </p>
+                  <div class="d-flex" id="quick-view-cart">
+                    <div class="d-flex cart-border px-2 rounded-2 py-1">
+                      <button
+                        class="border-none px-4 py-1 fw-bold bg-transparent"
+                        onclick="decreaseValue()"
+                      >
+                        -</button
+                      ><input
+                        type="text"
+                        class="border-none cart-item-value"
+                        value="1"
+                        id="cart-input"
+                      /><button
+                        class="border-none px-4 py-1 fw-bold bg-transparent"
+                        onclick="increaseValue()"
+                      >
+                        +
+                      </button>
+                    </div>
+                    <div class="d-flex">
+                      <button
+                        class="btn shop-btn mx-2 fw-bold"
+                        onclick="addtocart()"
+                      >
+                        ADD TO CART
+                      </button>
+                    </div>
+                    <div class="d-flex quick-icon">
+                      <i class="fa-solid fa-code-compare rounded-1"></i>
+                      <i class="fa-regular fa-heart rounded-1"></i>
+                    </div>
+                  </div>
+                  <hr class="container" />
+                  <div>
+                    <span class="text-secondary">Categories:</span
+                    ><span
+                      ><a href="#" class="footer-link"
+                        >Desk Accessories</a
+                      ></span
+                    >,<span
+                      ><a href="#" class="footer-link">
+                        Files & Folders</a
+                      ></span
+                    >,<span
+                      ><a href="#" class="footer-link"
+                        >Paper & NoteBooks</a
+                      ></span
+                    >,
+                    <span
+                      ><a href="#" class="footer-link">Uncategorized</a></span
+                    >
+                  </div>
+                  <hr class="container" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="position-fixed w-100 h-100 close-view"
+          onclick="viewRemove()"
+        ></div>
+      </section>
+
+      <!-- quick view end  -->
+      <div class="w-100 py-2 top-header-bg">
+        <div class="container d-flex justify-content-between">
+          <div class="align-items-center d-none d-sm-flex">
+            <span>Hotline:</span
+            ><span class="fw-bold">
+              <a href="tel:+16468801999" class="nav-link">+16468801999</a></span
+            >
+          </div>
+          <div
+            class="d-flex align-items-center justify-content-center d-none d-xl-block"
+          >
+            <span class="color fw-bold mx-2">25% OFF</span
+            ><span class="mx-2">Multi-Use Print & Copy Paper with code</span
+            ><span class="color fw-bold mx-2">EDUMA2023</span
+            ><span
+              ><button class="btn shop-btn mx-2 fw-bold">SHOP NOW</button></span
+            >
+          </div>
+          <div class="d-flex align-items-center">
+            <select
+              name="usd"
+              class="border-none cursor-pointer mx-1 bg-transparent"
+              id=""
+            >
+              <option value="eng">Eng</option>
+              <option value="uk">CN</option>
+              <option value="french">DE</option>
+            </select>
+            <select
+              name="usd "
+              class="border-none cursor-pointer mx-1 bg-transparent"
+              id=""
+            >
+              <option value="eng">USD</option>
+              <option value="uk">CAD</option>
+              <option value="french">Yen</option>
+            </select>
+            <a href="#" class="nav-link mx-1" onclick="loginForm()">Login</a>
+          </div>
+        </div>
+      </div>
+      <div
+        class="d-flex align-items-center justify-content-between container py-3"
+      >
+        <a class="navbar-brand d-none d-lg-block" href="#"
+          ><img
+            src="https://eduma.thimpress.com/demo-ecommerce/wp-content/uploads/sites/100/2023/09/Logo.svg"
+            alt="Tech"
+        /></a>
+        <nav class="navbar navbar-expand-lg">
+          <div
+            class="navbar-toggler bg-transparent border-0 d-block d-lg-none"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasLeft"
+            aria-controls="offcanvasLeft"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </div>
+        </nav>
+        <nav class="navbar navbar-expand-lg">
+          <div class="container d-flex justify-content-between">
+            <a class="navbar-brand d-block d-lg-none" href="#"
+              ><img
+                src="https://eduma.thimpress.com/demo-ecommerce/wp-content/uploads/sites/100/2023/09/Logo.svg"
+                alt="Tech"
+            /></a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <div
+                class="d-flex justify-content-between align-items-center flex-column flex-lg-row w-100"
+              >
+                <ul class="navbar-nav mt-1 margin-left">
+                  <li
+                    class="nav-item"
+                    onmouseover="showHomeDropdown()"
+                    onmouseout="hideHomeDropdown()"
+                  >
+                    <a
+                      class="nav-link border_bottom"
+                      aria-current="page"
+                      href="#"
+                      >Products</a
+                    >
+                    <div
+                      class="home__dropdown-width position-absolute d-none bg-white z-2 px-3 rounded-2 shadow product-dropdown"
+                      id="home__dropdown"
+                    >
+                      <ul
+                        class="navbar-nav d-flex flex-column py-4"
+                        onmouseover="showHomeDropdown()"
+                        onmouseout="hideHomeDropdown()"
+                      >
+                        <div class="">
+                          <div class="row">
+                            <div class="col-4">
+                              <h6>School Solutions</h6>
+                              <li class="nav-item">
+                                <a href="#" class="nav-link"> Accessories </a>
+                              </li>
+                              <li class="nav-item">
+                                <a href="#" class="nav-link"> Cookware </a>
+                              </li>
+                              <li class="nav-item">
+                                <a href="#" class="nav-link"> Culinary </a>
+                              </li>
+                            </div>
+                            <div class="col-4">
+                              <h6>School Solutions</h6>
+                              <li class="nav-item">
+                                <a href="#" class="nav-link"> Accessories </a>
+                              </li>
+                              <li class="nav-item">
+                                <a href="#" class="nav-link"> Cookware </a>
+                              </li>
+                              <li class="nav-item">
+                                <a href="#" class="nav-link"> Culinary </a>
+                              </li>
+                            </div>
+                            <div class="col-4">
+                              <h6>School Solutions</h6>
+                              <li class="nav-item">
+                                <a href="#" class="nav-link"> Accessories </a>
+                              </li>
+                              <li class="nav-item">
+                                <a href="#" class="nav-link"> Cookware </a>
+                              </li>
+                              <li class="nav-item">
+                                <a href="#" class="nav-link"> Culinary </a>
+                              </li>
+                            </div>
+                            <div class="col"></div>
+                            <div class="col"></div>
+                          </div>
+                        </div>
+                      </ul>
+                    </div>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">Best Deals</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">Paper & NoteBooks</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">Office Desk</a>
+                  </li>
+                  <li
+                    class="nav-item"
+                    onmouseover="showFeatureDropdown()"
+                    onmouseout="hideFeatureDropdown()"
+                  >
+                    <a class="nav-link border_bottom" href="#">Pages</a>
+                    <div
+                      class="home__dropdown-width position-absolute bg-white z-2 d-none rounded-2 shadow page-dropdown"
+                      id="feature__dropdown"
+                    >
+                      <ul
+                        class="navbar-nav d-flex flex-column"
+                        onmouseover="showFeatureDropdown()"
+                        onmouseout="hideFeatureDropdown()"
+                      >
+                        <li class="nav-item">
+                          <a
+                            href="#"
+                            class="nav-link line-draw d-flex align-items-center"
+                            >Post Type</a
+                          >
+                        </li>
+                        <li class="nav-item">
+                          <a
+                            href="#"
+                            class="nav-link line-draw d-flex align-items-center"
+                            >Sidebar</a
+                          >
+                        </li>
+                        <li class="nav-item">
+                          <a
+                            href="#"
+                            class="nav-link line-draw d-flex align-items-center"
+                            >Post Layout</a
+                          >
+                        </li>
+                        <li class="nav-item">
+                          <a
+                            href="#"
+                            class="nav-link line-draw d-flex align-items-center"
+                            >Tables of content</a
+                          >
+                        </li>
+                        <li class="nav-item">
+                          <a
+                            href="#"
+                            class="nav-link line-draw d-flex align-items-center"
+                            >Updated Date</a
+                          >
+                        </li>
+                        <li class="nav-item">
+                          <a
+                            href="#"
+                            class="nav-link line-draw d-flex align-items-center"
+                            >Comments Template</a
+                          >
+                        </li>
+                        <li class="nav-item">
+                          <a
+                            href="#"
+                            class="nav-link line-draw d-flex align-items-center"
+                            >Autoload Next Post</a
+                          >
+                        </li>
+                        <li class="nav-item">
+                          <a
+                            href="#"
+                            class="nav-link line-draw d-flex align-items-center"
+                            >Page 404</a
+                          >
+                        </li>
+                        <li class="nav-item">
+                          <a
+                            href="#"
+                            class="nav-link line-draw d-flex align-items-center"
+                            >Search Result</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </nav>
+        <div class="d-flex justify-content-between align-items-center">
+          <i
+            class="fa fa-search cursor-pointer mx-3"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+            data-mdb-backdrop="false"
+            id="headersearch"
+            onclick="() =>{
+              document.querySelector('.modal').classList.remove('d-none')
+            }"
+          ></i>
+          <span type="button" class="position-relative mx-3 d-none d-sm-block">
+            <i class="fa-regular fa-heart"></i>
+            <span
+              class="position-absolute top-0 start-100 translate-middle badge rounded-circle icon-bg"
+            >
+              0
+            </span>
+          </span>
+          <span
+            type="button"
+            class="position-relative mx-3"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvascart"
+            aria-controls="offcanvascart"
+          >
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span
+              class="position-absolute top-0 start-100 translate-middle badge rounded-circle icon-bg"
+              id="cart-count"
+            >
+              0
+            </span>
+          </span>
+        </div>
+      </div>
+
+      <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog position-relative search-modal">
+          <div class="modal-content">
+            <div class="modal-body">
+              <div
+                class="w-100 text-start rounded-1 px-1 py-1 bg-white footer__form-box fw-bold border-1 text-secondary px-2 py-2 form-box-border"
+              >
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                  onclick=""
+                ></button>
+                <form
+                  action="/"
+                  class="d-flex justify-content-between align-items-center"
+                >
+                  <input
+                    type="search"
+                    placeholder="Search ..."
+                    name="search"
+                    class="border-0 px-2 w-100 rounded-pill outline"
+                  />
+                  <button class="border-0 bg-white" type="submit">
+                    <i class="fa fa-search cursor-pointer mx-2"></i>
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="offcanvas offcanvas-start"
+        tabindex="-1"
+        id="offcanvasLeft"
+        aria-labelledby="offcanvasLeftLabel"
+      >
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasLeftLabel">
+            <img
+              src="https://eduma.thimpress.com/demo-ecommerce/wp-content/uploads/sites/100/2023/09/Logo.svg"
+              alt=""
+            />
+          </h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Product
+              </a>
+              <ul class="dropdown-menu border-0">
+                <li class="fw-bold color mx-3">School Solutions</li>
+                <li><a class="nav-link" href="#">Accessories</a></li>
+                <li>
+                  <a class="nav-link" href="#">Cookware</a>
+                </li>
+
+                <li><a class="nav-link" href="#">Culinary</a></li>
+                <li class="fw-bold color mx-3">University Solutions</li>
+                <li><a class="nav-link" href="#">Files & Folders</a></li>
+                <li>
+                  <a class="nav-link" href="#">Desk Accessories</a>
+                </li>
+                <li><a class="nav-link" href="#">Office Desk</a></li>
+
+                <li class="fw-bold color mx-3">School Solutions</li>
+                <li><a class="nav-link" href="#">Paper & NoteBooks</a></li>
+                <li>
+                  <a class="nav-link" href="#">Pens & Writing</a>
+                </li>
+                <li><a class="nav-link" href="#">Printer</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">Best Deals</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">Paper & NoteBooks</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">Office Desk</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Pages
+              </a>
+              <ul class="dropdown-menu border-0">
+                <li>
+                  <a class="nav-link" href="#">Filter Left Sidebar</a>
+                </li>
+                <li>
+                  <a class="nav-link" href="#">Simple Product Layout </a>
+                </li>
+                <li>
+                  <a class="nav-link" href="#">Variable Product Layout</a>
+                </li>
+                <li>
+                  <a class="nav-link" href="#">Cart</a>
+                </li>
+                <li>
+                  <a class="nav-link" href="#">Blog Grid</a>
+                </li>
+                <li>
+                  <a class="nav-link" href="#">Blog List</a>
+                </li>
+                <li>
+                  <a class="nav-link" href="#">Wishlist</a>
+                </li>
+                <li>
+                  <a class="nav-link" href="#">Compare</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div
+        class="offcanvas offcanvas-end"
+        tabindex="-1"
+        id="offcanvascart"
+        aria-labelledby="offcanvascartLabel"
+      >
+        <div class="offcanvas-header">
+          <h4
+            class="offcanvas-title roboto-slab fw-bold"
+            id="offcanvascartLabel"
+          >
+            Shopping Cart
+          </h4>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="offcanvas-body">
+          <div class="row" id="price">
+            <div
+              class="d-flex flex-column align-items-start justify-content-center w-100 h-75"
+              id="cart-todo"
+            ></div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="swiper mySwiper1">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide banner-swiper1">
+          <div class="container">
+            <div class="row">
+              <div
+                class="col-12 col-lg-4 d-flex justify-content-lg-center align-items-lg-start align-items-center justify-content-start flex-column px-4 gap-3 py-5 py-lg-0"
+              >
+                <p class="text-white fw-bold">Back to school SALE UP TO 50%</p>
+                <h1
+                  class="text-white fw-bold text-center text-lg-start lh-sm roboto-slab banner-heading"
+                >
+                  Everythings For Office & School Supplies
+                </h1>
+                <button class="btn swiper-btn mx-2 fw-bold">SHOP NOW</button>
+              </div>
+              <div class="col">
+                <img src="assets/bag-banner.webp" alt="" class="swiper-img" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide banner-swiper2">
+          <div class="container">
+            <div class="row">
+              <div
+                class="col-12 col-lg-4 d-flex justify-content-lg-center align-items-lg-start align-items-center justify-content-start flex-column px-4 py-5 py-lg-0 gap-3"
+              >
+                <p class="text-white fw-bold">Back to school SALE UP TO 50%</p>
+                <h1
+                  class="text-white fw-bold text-center text-lg-start lh-sm roboto-slab banner-heading"
+                >
+                  Everythings For Office & School Supplies
+                </h1>
+                <button class="btn swiper-btn mx-2 fw-bold">SHOP NOW</button>
+              </div>
+              <div class="col">
+                <img src="assets/books banner.webp" alt="" class="swiper-img" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide banner-swiper3">
+          <div class="container">
+            <div class="row">
+              <div
+                class="col-12 col-lg-4 d-flex justify-content-lg-center align-items-lg-start align-items-center justify-content-start flex-column px-4 py-5 py-lg-0 gap-3"
+              >
+                <p class="text-white fw-bold">Back to school SALE UP TO 50%</p>
+                <h1
+                  class="text-white fw-bold text-center text-lg-start lh-sm roboto-slab banner-heading"
+                >
+                  Everythings For Office & School Supplies
+                </h1>
+                <button class="btn swiper-btn mx-2 fw-bold">SHOP NOW</button>
+              </div>
+              <div class="col">
+                <img src="assets/lcd banner.webp" alt="" class="swiper-img" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-pagination pagination-margin"></div>
+    </section>
+
+    <section class="container-fluid overflow-hidden categories-bg">
+      <div class="swiper mySwiper2 container1">
+        <div class="swiper-wrapper my-5">
+          <div class="swiper-slide swiper-slide2 bg-transparent">
+            <img
+              src="assets/Desk-Accessories.webp"
+              alt=""
+              class="rounded-circle"
+              height="500px"
+            />
+            <h4 class="w-100 roboto-slab fw-bold my-3">Paper-Notebooks</h4>
+          </div>
+          <div class="swiper-slide swiper-slide2 bg-transparent">
+            <img
+              src="assets/Files-Folders.webp"
+              alt=""
+              class="rounded-circle"
+            />
+            <h4 class="w-100 roboto-slab fw-bold my-3">Printer</h4>
+          </div>
+          <div class="swiper-slide swiper-slide2 bg-transparent">
+            <img src="assets/Office-Desk.png" alt="" class="rounded-circle" />
+            <h4 class="w-100 roboto-slab fw-bold my-3">Pens & Writing</h4>
+          </div>
+          <div class="swiper-slide swiper-slide2 bg-transparent">
+            <img
+              src="assets/Weekly-Undated-Planner-Set-B6-2.webp"
+              alt=""
+              class="rounded-circle"
+            />
+            <h4 class="w-100 roboto-slab fw-bold my-3">Desk</h4>
+          </div>
+          <div class="swiper-slide swiper-slide2 bg-transparent">
+            <img
+              src="assets/2024-Wall-Calendar.webp"
+              alt=""
+              class="rounded-circle"
+            />
+            <h4 class="w-100 roboto-slab fw-bold my-3">Files & Folders</h4>
+          </div>
+          <div class="swiper-slide swiper-slide2 bg-transparent">
+            <img
+              src="assets/paper-notebooks.webp"
+              alt=""
+              class="rounded-circle"
+            />
+            <h4 class="w-100 roboto-slab fw-bold my-3">Office Desk</h4>
+          </div>
+          <div class="swiper-slide swiper-slide2 bg-transparent">
+            <img src="assets/Printer.webp" alt="" class="rounded-circle" />
+            <h4 class="w-100 roboto-slab fw-bold my-3">Paper</h4>
+          </div>
+          <div class="swiper-slide swiper-slide2 bg-transparent">
+            <img src="assets/Pens-Writing.webp" alt="" class="rounded-circle" />
+            <h4 class="w-100 roboto-slab fw-bold my-3">Calendar</h4>
+          </div>
+          <!-- Add more slides as needed -->
+        </div>
+        <div class="swiper-pagination d-none"></div>
+      </div>
+    </section>
+    <section class="container-fluid overflow-hidden">
+      <div class="swiper mySwiper3 container1">
+        <div class="swiper-wrapper my-5 py-5">
+          <div class="swiper-slide overflow-hidden rounded-4 order-height">
+            <div class="slide-bg position-absolute"></div>
+            <div
+              class="d-flex justify-content-center text-white align-items-start w-100 m-5 py-5 z-1 flex-column"
+            >
+              <h3 class="roboto-slab fw-bold shop-order">First Order</h3>
+              <p class="shop-online">ONLINE AND IN STORE</p>
+              <div
+                class="d-flex justify-content-center mx-3 align-items-center"
+              >
+                <h1 class="roboto-slab fw-bold discount">10</h1>
+                <span class="d-flex flex-column"
+                  ><span>%</span><span>Off</span></span
+                >
+              </div>
+              <div class="d-flex">
+                <span class="fw-bold">Use code:</span>
+                <span class="fw-bold">EDUMA</span>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide overflow-hidden rounded-4 order-height">
+            <div class="slide-bg2 position-absolute"></div>
+            <div
+              class="d-flex justify-content-center text-white align-items-start w-100 m-5 py-5 z-1 flex-column"
+            >
+              <h3 class="roboto-slab fw-bold shop-order">First Order</h3>
+              <p class="shop-online">ONLINE AND IN STORE</p>
+              <div
+                class="d-flex justify-content-center mx-3 align-items-center"
+              >
+                <h1 class="roboto-slab fw-bold discount">10</h1>
+                <span class="d-flex flex-column"
+                  ><span>%</span><span>Off</span></span
+                >
+              </div>
+              <div class="d-flex">
+                <span class="fw-bold">Use code:</span>
+                <span class="fw-bold">EDUMA</span>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide overflow-hidden rounded-4 order-height">
+            <div class="slide-bg3 position-absolute"></div>
+            <div
+              class="d-flex justify-content-center text-white align-items-start w-100 m-5 py-5 z-1 flex-column"
+            >
+              <h3 class="roboto-slab fw-bold shop-order">First Order</h3>
+              <p class="shop-online">ONLINE AND IN STORE</p>
+              <div
+                class="d-flex justify-content-center mx-3 align-items-center"
+              >
+                <h1 class="roboto-slab fw-bold discount">10</h1>
+                <span class="d-flex flex-column"
+                  ><span>%</span><span>Off</span></span
+                >
+              </div>
+              <div class="d-flex">
+                <span class="fw-bold">Use code:</span>
+                <span class="fw-bold">EDUMA</span>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide overflow-hidden rounded-4 order-height">
+            <div class="slide-bg position-absolute"></div>
+            <div
+              class="d-flex justify-content-center text-white align-items-start w-100 m-5 py-5 z-1 flex-column"
+            >
+              <h3 class="roboto-slab fw-bold shop-order">First Order</h3>
+              <p class="shop-online">ONLINE AND IN STORE</p>
+              <div
+                class="d-flex justify-content-center mx-3 align-items-center"
+              >
+                <h1 class="roboto-slab fw-bold discount">10</h1>
+                <span class="d-flex flex-column"
+                  ><span>%</span><span>Off</span></span
+                >
+              </div>
+              <div class="d-flex">
+                <span class="fw-bold">Use code:</span>
+                <span class="fw-bold">EDUMA</span>
+              </div>
+            </div>
+          </div>
+          <!-- Add more slides as needed -->
+        </div>
+        <div class="swiper-pagination d-none"></div>
+      </div>
+    </section>
+
+    <section
+      class="d-flex justify-content-center align-items-center container flex-column"
+    >
+      <div
+        class="d-flex justify-content-center align-items-center shop-width my-3"
+      >
+        <h1
+          class="mx-2 mx-md-3 fw-bold roboto-slab color borderBottom pb-3 cursor-pointer"
+          id="popularh1"
+          onclick="popular()"
+        >
+          Popular
+        </h1>
+        <h1
+          class="mx-2 mx-md-3 fw-bold roboto-slab cursor-pointer pb-3"
+          id="sellerh1"
+          onclick="bestseller()"
+        >
+          Best seller
+        </h1>
+        <h1
+          class="mx-2 mx-md-3 fw-bold roboto-slab cursor-pointer pb-3"
+          id="rateh1"
+          onclick="toprate()"
+        >
+          Top rate
+        </h1>
+      </div>
+      <div class="container" id="popular-product">
+        <div class="row my-4">
+          <div class="col-12 col-sm-6 col-md-3 position-relative">
+            <div class="d-flex flex-column shop-card rounded-2">
+              <div class="w-100 overflow-hidden top-radius">
+                <img
+                  src="assets/shop-1.webp"
+                  class="bg-img top-radius"
+                  alt=""
+                  width="100%
+              "
+                />
+              </div>
+              <div class="flex-column position-absolute shop-title card-icons">
+                <i class="fa-regular fa-eye" onclick="view()"></i>
+                <i class="fa-solid fa-code-compare"></i>
+                <i class="fa-regular fa-heart"></i>
+                <i
+                  class="fa-solid fa-cart-shopping add-cart"
+                  onclick="addtocart()"
+                ></i>
+              </div>
+              <div class="d-flex flex-column bottom-radius p-3">
+                <p class="d-flex justify-content-center align-items-center">
+                  Safari Fountain Pen Gift Set
+                </p>
+                <price
+                  class="d-flex justify-content-center align-items-center fw-bold"
+                  >$35.00</price
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-md-3 position-relative">
+            <div class="d-flex flex-column shop-card rounded-2">
+              <div class="w-100 overflow-hidden top-radius">
+                <img
+                  src="assets/shop-2.webp"
+                  class="bg-img top-radius"
+                  alt=""
+                  width="100%
+              "
+                />
+              </div>
+              <div class="flex-column position-absolute shop-title card-icons">
+                <i class="fa-regular fa-eye" onclick="view()"></i>
+                <i class="fa-solid fa-code-compare"></i>
+                <i class="fa-regular fa-heart"></i>
+                <i
+                  class="fa-solid fa-cart-shopping add-cart"
+                  onclick="addtocart()"
+                ></i>
+              </div>
+              <div class="d-flex flex-column bottom-radius p-3">
+                <p class="d-flex justify-content-center align-items-center">
+                  Safari Fountain Pen Gift Set
+                </p>
+                <price
+                  class="d-flex justify-content-center align-items-center fw-bold"
+                  >$35.00</price
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-md-3 position-relative">
+            <div class="d-flex flex-column shop-card rounded-2">
+              <div class="w-100 overflow-hidden top-radius">
+                <img
+                  src="assets/shop-3.webp"
+                  class="bg-img top-radius"
+                  alt=""
+                  width="100%
+              "
+                />
+              </div>
+              <div class="flex-column position-absolute shop-title card-icons">
+                <i class="fa-regular fa-eye" onclick="view()"></i>
+                <i class="fa-solid fa-code-compare"></i>
+                <i class="fa-regular fa-heart"></i>
+                <i
+                  class="fa-solid fa-cart-shopping add-cart"
+                  onclick="addtocart()"
+                ></i>
+              </div>
+              <div class="d-flex flex-column bottom-radius p-3">
+                <p class="d-flex justify-content-center align-items-center">
+                  Safari Fountain Pen Gift Set
+                </p>
+                <price
+                  class="d-flex justify-content-center align-items-center fw-bold"
+                  >$35.00</price
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-md-3 position-relative">
+            <div class="d-flex flex-column shop-card rounded-2">
+              <div class="w-100 overflow-hidden top-radius">
+                <img
+                  src="assets/shop-4.webp"
+                  class="bg-img top-radius"
+                  alt=""
+                  width="100%
+              "
+                />
+              </div>
+              <div class="flex-column position-absolute shop-title card-icons">
+                <i class="fa-regular fa-eye" onclick="view()"></i>
+                <i class="fa-solid fa-code-compare"></i>
+                <i class="fa-regular fa-heart"></i>
+                <i
+                  class="fa-solid fa-cart-shopping add-cart"
+                  onclick="addtocart()"
+                ></i>
+              </div>
+              <div class="d-flex flex-column bottom-radius p-3">
+                <p class="d-flex justify-content-center align-items-center">
+                  Safari Fountain Pen Gift Set
+                </p>
+                <price
+                  class="d-flex justify-content-center align-items-center fw-bold"
+                  >$35.00</price
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row my-4">
+          <div class="col-12 col-sm-6 col-md-3 position-relative">
+            <div class="d-flex flex-column shop-card rounded-2">
+              <div class="w-100 overflow-hidden top-radius">
+                <img
+                  src="assets/shop-5.webp"
+                  class="bg-img top-radius"
+                  alt=""
+                  width="100%
+              "
+                />
+              </div>
+              <div class="flex-column position-absolute shop-title card-icons">
+                <i class="fa-regular fa-eye" onclick="view()"></i>
+                <i class="fa-solid fa-code-compare"></i>
+                <i class="fa-regular fa-heart"></i>
+                <i
+                  class="fa-solid fa-cart-shopping add-cart"
+                  onclick="addtocart()"
+                ></i>
+              </div>
+              <div class="d-flex flex-column bottom-radius p-3">
+                <p class="d-flex justify-content-center align-items-center">
+                  Safari Fountain Pen Gift Set
+                </p>
+                <price
+                  class="d-flex justify-content-center align-items-center fw-bold"
+                  >$35.00</price
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-md-3 position-relative">
+            <div class="d-flex flex-column shop-card rounded-2">
+              <div class="w-100 overflow-hidden top-radius">
+                <img
+                  src="assets/shop-6.webp"
+                  class="bg-img top-radius"
+                  alt=""
+                  width="100%
+              "
+                />
+              </div>
+              <div class="flex-column position-absolute shop-title card-icons">
+                <i class="fa-regular fa-eye" onclick="view()"></i>
+                <i class="fa-solid fa-code-compare"></i>
+                <i class="fa-regular fa-heart"></i>
+                <i
+                  class="fa-solid fa-cart-shopping add-cart"
+                  onclick="addtocart()"
+                ></i>
+              </div>
+              <div class="d-flex flex-column bottom-radius p-3">
+                <p class="d-flex justify-content-center align-items-center">
+                  Safari Fountain Pen Gift Set
+                </p>
+                <price
+                  class="d-flex justify-content-center align-items-center fw-bold"
+                  >$35.00</price
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-md-3 position-relative">
+            <div class="d-flex flex-column shop-card rounded-2">
+              <div class="w-100 overflow-hidden top-radius">
+                <img
+                  src="assets/shop-7.webp"
+                  class="bg-img top-radius"
+                  alt=""
+                  width="100%
+              "
+                />
+              </div>
+              <div class="flex-column position-absolute shop-title card-icons">
+                <i class="fa-regular fa-eye" onclick="view()"></i>
+                <i class="fa-solid fa-code-compare"></i>
+                <i class="fa-regular fa-heart"></i>
+                <i
+                  class="fa-solid fa-cart-shopping add-cart"
+                  onclick="addtocart()"
+                ></i>
+              </div>
+              <div class="d-flex flex-column bottom-radius p-3">
+                <p class="d-flex justify-content-center align-items-center">
+                  Safari Fountain Pen Gift Set
+                </p>
+                <price
+                  class="d-flex justify-content-center align-items-center fw-bold"
+                  >$35.00</price
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-md-3 position-relative">
+            <div class="d-flex flex-column shop-card rounded-2">
+              <div class="w-100 overflow-hidden top-radius">
+                <img
+                  src="assets/shop-8.webp"
+                  class="bg-img top-radius"
+                  alt=""
+                  width="100%
+              "
+                />
+              </div>
+              <div class="flex-column position-absolute shop-title card-icons">
+                <i class="fa-regular fa-eye" onclick="view()"></i>
+                <i class="fa-solid fa-code-compare"></i>
+                <i class="fa-regular fa-heart"></i>
+                <i
+                  class="fa-solid fa-cart-shopping add-cart"
+                  onclick="addtocart()"
+                ></i>
+              </div>
+              <div class="d-flex flex-column bottom-radius p-3">
+                <p class="d-flex justify-content-center align-items-center">
+                  Safari Fountain Pen Gift Set
+                </p>
+                <price
+                  class="d-flex justify-content-center align-items-center fw-bold"
+                  >$35.00</price
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container d-none" id="seller-product">
+        <div class="row my-4">
+          <div class="col-12 col-sm-6 col-md-3 position-relative">
+            <div class="d-flex flex-column shop-card rounded-2">
+              <div class="w-100 overflow-hidden top-radius">
+                <img
+                  src="assets/shop-5.webp"
+                  class="bg-img top-radius"
+                  alt=""
+                  width="100%
+              "
+                />
+              </div>
+              <div class="flex-column position-absolute shop-title card-icons">
+                <i class="fa-regular fa-eye" onclick="view()"></i>
+                <i class="fa-solid fa-code-compare"></i>
+                <i class="fa-regular fa-heart"></i>
+                <i
+                  class="fa-solid fa-cart-shopping add-cart"
+                  onclick="addtocart()"
+                ></i>
+              </div>
+              <div class="d-flex flex-column bottom-radius p-3">
+                <p class="d-flex justify-content-center align-items-center">
+                  Safari Fountain Pen Gift Set
+                </p>
+                <price
+                  class="d-flex justify-content-center align-items-center fw-bold"
+                  >$35.00</price
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-md-3 position-relative">
+            <div class="d-flex flex-column shop-card rounded-2">
+              <div class="w-100 overflow-hidden top-radius">
+                <img
+                  src="assets/shop-6.webp"
+                  class="bg-img top-radius"
+                  alt=""
+                  width="100%
+              "
+                />
+              </div>
+              <div class="flex-column position-absolute shop-title card-icons">
+                <i class="fa-regular fa-eye" onclick="view()"></i>
+                <i class="fa-solid fa-code-compare"></i>
+                <i class="fa-regular fa-heart"></i>
+                <i
+                  class="fa-solid fa-cart-shopping add-cart"
+                  onclick="addtocart()"
+                ></i>
+              </div>
+              <div class="d-flex flex-column bottom-radius p-3">
+                <p class="d-flex justify-content-center align-items-center">
+                  Safari Fountain Pen Gift Set
+                </p>
+                <price
+                  class="d-flex justify-content-center align-items-center fw-bold"
+                  >$35.00</price
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-md-3 position-relative">
+            <div class="d-flex flex-column shop-card rounded-2">
+              <div class="w-100 overflow-hidden top-radius">
+                <img
+                  src="assets/shop-7.webp"
+                  class="bg-img top-radius"
+                  alt=""
+                  width="100%
+              "
+                />
+              </div>
+              <div class="flex-column position-absolute shop-title card-icons">
+                <i class="fa-regular fa-eye" onclick="view()"></i>
+                <i class="fa-solid fa-code-compare"></i>
+                <i class="fa-regular fa-heart"></i>
+                <i
+                  class="fa-solid fa-cart-shopping add-cart"
+                  onclick="addtocart()"
+                ></i>
+              </div>
+              <div class="d-flex flex-column bottom-radius p-3">
+                <p class="d-flex justify-content-center align-items-center">
+                  Safari Fountain Pen Gift Set
+                </p>
+                <price
+                  class="d-flex justify-content-center align-items-center fw-bold"
+                  >$35.00</price
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-md-3 position-relative">
+            <div class="d-flex flex-column shop-card rounded-2">
+              <div class="w-100 overflow-hidden top-radius">
+                <img
+                  src="assets/shop-8.webp"
+                  class="bg-img top-radius"
+                  alt=""
+                  width="100%
+              "
+                />
+              </div>
+              <div class="flex-column position-absolute shop-title card-icons">
+                <i class="fa-regular fa-eye" onclick="view()"></i>
+                <i class="fa-solid fa-code-compare"></i>
+                <i class="fa-regular fa-heart"></i>
+                <i
+                  class="fa-solid fa-cart-shopping add-cart"
+                  onclick="addtocart()"
+                ></i>
+              </div>
+              <div class="d-flex flex-column bottom-radius p-3">
+                <p class="d-flex justify-content-center align-items-center">
+                  Safari Fountain Pen Gift Set
+                </p>
+                <price
+                  class="d-flex justify-content-center align-items-center fw-bold"
+                  >$35.00</price
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container d-none" id="rated-product">
+        <div class="row my-4">
+          <div class="col-12 col-sm-6 col-md-3 position-relative">
+            <div class="d-flex flex-column shop-card rounded-2">
+              <div class="w-100 overflow-hidden top-radius">
+                <img
+                  src="assets/shop-1.webp"
+                  class="bg-img top-radius"
+                  alt=""
+                  width="100%
+              "
+                />
+              </div>
+              <div class="flex-column position-absolute shop-title card-icons">
+                <i class="fa-regular fa-eye" onclick="view()"></i>
+                <i class="fa-solid fa-code-compare"></i>
+                <i class="fa-regular fa-heart"></i>
+                <i
+                  class="fa-solid fa-cart-shopping add-cart"
+                  onclick="addtocart()"
+                ></i>
+              </div>
+              <div class="d-flex flex-column bottom-radius p-3">
+                <p class="d-flex justify-content-center align-items-center">
+                  Safari Fountain Pen Gift Set
+                </p>
+                <price
+                  class="d-flex justify-content-center align-items-center fw-bold"
+                  >$35.00</price
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-md-3 position-relative">
+            <div class="d-flex flex-column shop-card rounded-2">
+              <div class="w-100 overflow-hidden top-radius">
+                <img
+                  src="assets/shop-2.webp"
+                  class="bg-img top-radius"
+                  alt=""
+                  width="100%
+              "
+                />
+              </div>
+              <div class="flex-column position-absolute shop-title card-icons">
+                <i class="fa-regular fa-eye" onclick="view()"></i>
+                <i class="fa-solid fa-code-compare"></i>
+                <i class="fa-regular fa-heart"></i>
+                <i
+                  class="fa-solid fa-cart-shopping add-cart"
+                  onclick="addtocart()"
+                ></i>
+              </div>
+              <div class="d-flex flex-column bottom-radius p-3">
+                <p class="d-flex justify-content-center align-items-center">
+                  Safari Fountain Pen Gift Set
+                </p>
+                <price
+                  class="d-flex justify-content-center align-items-center fw-bold"
+                  >$35.00</price
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-md-3 position-relative">
+            <div class="d-flex flex-column shop-card rounded-2">
+              <div class="w-100 overflow-hidden top-radius">
+                <img
+                  src="assets/shop-3.webp"
+                  class="bg-img top-radius"
+                  alt=""
+                  width="100%
+              "
+                />
+              </div>
+              <div class="flex-column position-absolute shop-title card-icons">
+                <i class="fa-regular fa-eye" onclick="view()"></i>
+                <i class="fa-solid fa-code-compare"></i>
+                <i class="fa-regular fa-heart"></i>
+                <i
+                  class="fa-solid fa-cart-shopping add-cart"
+                  onclick="addtocart()"
+                ></i>
+              </div>
+              <div class="d-flex flex-column bottom-radius p-3">
+                <p class="d-flex justify-content-center align-items-center">
+                  Safari Fountain Pen Gift Set
+                </p>
+                <price
+                  class="d-flex justify-content-center align-items-center fw-bold"
+                  >$35.00</price
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-md-3 position-relative">
+            <div class="d-flex flex-column shop-card rounded-2">
+              <div class="w-100 overflow-hidden top-radius">
+                <img
+                  src="assets/shop-4.webp"
+                  class="bg-img top-radius"
+                  alt=""
+                  width="100%
+              "
+                />
+              </div>
+              <div class="flex-column position-absolute shop-title card-icons">
+                <i class="fa-regular fa-eye" onclick="view()"></i>
+                <i class="fa-solid fa-code-compare"></i>
+                <i class="fa-regular fa-heart"></i>
+                <i
+                  class="fa-solid fa-cart-shopping add-cart"
+                  onclick="addtocart()"
+                ></i>
+              </div>
+              <div class="d-flex flex-column bottom-radius p-3">
+                <p class="d-flex justify-content-center align-items-center">
+                  Safari Fountain Pen Gift Set
+                </p>
+                <price
+                  class="d-flex justify-content-center align-items-center fw-bold"
+                  >$35.00</price
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="btn btn-outline">SEE MORE PRODUCTS</button>
+    </section>
+
+    <section class="container px-2 px-md-5 py-5 rounded-4 my-5 deals-bg">
+      <div class="row my-4">
+        <div class="col-12 col-sm-6 col-md-4 mt-3 position-relative">
+          <div
+            class="d-flex flex-column flex-wrap justify-content-center py-4 align-items-center shop-card rounded-2 shadow-none"
+          >
+            <h4 class="roboto-slab text-white fw-bold w-100 text-center">
+              Deals of the week
+            </h4>
+            <h1 class="roboto-slab text-white fw-bold w-100 text-center">
+              Back To School
+            </h1>
+            <div
+              class="d-flex w-100 text-center justify-content-center align-items-center flex-column"
+            >
+              <div class="d-flex w-100 align-items-center text-white">
+                <h4 class="fw-bold roboto-slab mx-3 lh-base saleupto">
+                  Sale up to
+                </h4>
+                <div class="w-50 bg-white mb-2 height1"></div>
+              </div>
+              <div class="d-flex w-100 justify-content-center">
+                <h1 class="roboto-slab thirty-percent w-100 h-100">30%</h1>
+              </div>
+              <div class="d-flex w-100 align-items-center text-white">
+                <div class="w-50 bg-white mb-2 height1"></div>
+                <h4 class="fw-bold roboto-slab mx-3 lh-base">All products</h4>
+              </div>
+              <button class="btn view-btn">VIEW ALL</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 mt-3 position-relative">
+          <div
+            class="d-flex bg-white p-4 justify-content-center align-items-center rounded-2"
+          >
+            <div class="d-flex flex-column shop-card rounded-2 shadow-none">
+              <div class="w-100 overflow-hidden top-radius">
+                <img
+                  src="assets/shop-7.webp"
+                  class="bg-img top-radius"
+                  alt=""
+                  width="100%
+              "
+                />
+              </div>
+              <div
+                class="d-flex bg-danger position-absolute px-2 py-1 text-white mx-3 rounded-1 nine-percent"
+              >
+                -9%
+              </div>
+              <div
+                class="position-absolute shop-title gap-2 justify-content-center w-100 sale-cards-icons"
+              >
+                <i class="fa-regular fa-eye" onclick="view()"></i>
+                <i class="fa-solid fa-code-compare"></i>
+                <i class="fa-regular fa-heart"></i>
+                <i
+                  class="fa-solid fa-cart-shopping add-cart"
+                  onclick="addtocart()"
+                ></i>
+              </div>
+              <div class="d-flex flex-column bottom-radius p-3">
+                <p
+                  class="d-flex justify-content-center align-items-center mb-0"
+                >
+                  Safari Fountain Pen Gift Set
+                </p>
+                <price
+                  class="d-flex justify-content-center align-items-center fw-bold"
+                  >$35.00</price
+                >
+              </div>
+              <div
+                class="d-flex justify-content-center align-items-center mb-3"
+              >
+                <i class="fa-solid fa-star text-warning"></i>
+                <i class="fa-solid fa-star text-warning"></i>
+                <i class="fa-solid fa-star text-warning"></i>
+                <i class="fa-solid fa-star text-warning"></i>
+                <i class="fa-solid fa-star text-warning"></i>
+                <span class="text-secondary">(1 Reviews)</span>
+              </div>
+              <div class="d-flex flex-column gap-2">
+                <div class="w-100 bg-danger-subtle rounded-5 bar-height">
+                  <div class="w-50 h-100 rounded-5 bar-color"></div>
+                </div>
+                <div>
+                  <p class="text-dark text-center">Only 400 left in stock</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 mt-3 position-relative">
+          <div class="d-flex p-4 bg-white rounded-2">
+            <div class="d-flex flex-column shop-card rounded-2 shadow-none">
+              <div class="w-100 overflow-hidden top-radius">
+                <img
+                  src="assets/shop-8.webp"
+                  class="bg-img top-radius"
+                  alt=""
+                  width="100%
+            "
+                />
+              </div>
+              <div
+                class="d-flex bg-danger position-absolute px-2 py-1 text-white mx-3 rounded-1 nine-percent"
+              >
+                -9%
+              </div>
+              <div
+                class="position-absolute shop-title gap-2 justify-content-center w-100 sale-cards-icons"
+              >
+                <i class="fa-regular fa-eye" onclick="view()"></i>
+                <i class="fa-solid fa-code-compare"></i>
+                <i class="fa-regular fa-heart"></i>
+                <i
+                  class="fa-solid fa-cart-shopping add-cart"
+                  onclick="addtocart()"
+                ></i>
+              </div>
+              <div class="d-flex flex-column bottom-radius p-3">
+                <p
+                  class="d-flex justify-content-center align-items-center mb-0"
+                >
+                  Safari Fountain Pen Gift Set
+                </p>
+                <price
+                  class="d-flex justify-content-center align-items-center fw-bold mt-0"
+                  >$35.00</price
+                >
+              </div>
+              <div
+                class="d-flex justify-content-center align-items-center mb-3"
+              >
+                <i class="fa-solid fa-star text-warning"></i>
+                <i class="fa-solid fa-star text-warning"></i>
+                <i class="fa-solid fa-star text-warning"></i>
+                <i class="fa-solid fa-star text-warning"></i>
+                <i class="fa-solid fa-star text-warning"></i>
+                <span class="text-secondary">(1 Reviews)</span>
+              </div>
+              <div class="d-flex flex-column gap-2">
+                <div class="w-100 bg-danger-subtle rounded-5 bar-height">
+                  <div class="w-50 h-100 rounded-5 bar-color"></div>
+                </div>
+                <div>
+                  <p class="text-dark text-center">Only 400 left in stock</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="d-flex flex-column">
+        <h2 class="roboto-slab text-center fw-bold">
+          We provide the best solutions
+        </h2>
+        <div class="row my-5">
+          <div class="col-12 col-md-4 mt-3">
+            <div
+              class="d-flex flex-column gap-2 px-4 py-4 justify-content-center align-items-center service-card rounded-3"
+            >
+              <i class="fa-solid fa-pen"></i>
+              <h2 class="roboto-slab text-center fw-bold">School Solutions</h2>
+              <p class="text-center roboto-slab">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
+                ut feugiat mi. Nunc tincidunt, ante rutrum varius mollis.
+              </p>
+              <a href="#">READ MORE</a>
+            </div>
+          </div>
+          <div class="col-12 col-md-4 mt-3">
+            <div
+              class="d-flex flex-column gap-2 px-4 py-4 justify-content-center align-items-center service-card rounded-3"
+            >
+              <i class="fa-solid fa-pen"></i>
+              <h2 class="roboto-slab text-center fw-bold">Office Solutions</h2>
+              <p class="text-center roboto-slab">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
+                ut feugiat mi. Nunc tincidunt, ante rutrum varius mollis.
+              </p>
+              <a href="#">READ MORE</a>
+            </div>
+          </div>
+          <div class="col-12 col-md-4 mt-3">
+            <div
+              class="d-flex flex-column gap-2 px-4 py-4 justify-content-center align-items-center service-card rounded-3"
+            >
+              <i class="fa-solid fa-pen"></i>
+              <h2 class="roboto-slab text-center fw-bold">
+                University Solutions
+              </h2>
+              <p class="text-center roboto-slab">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
+                ut feugiat mi. Nunc tincidunt, ante rutrum varius mollis.
+              </p>
+              <a href="#">READ MORE</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container-fluid overflow-hidden my-4">
+      <div class="swiper mySwiper4 container1 px-4">
+        <div class="swiper-wrapper my-5 d-flex justify-content-center">
+          <div class="swiper-slide bg-transparent partener rounded-4">
+            <img
+              src="assets/section7-img1.webp"
+              alt=""
+              class="rounded-circle"
+            />
+          </div>
+          <div class="swiper-slide bg-transparent partener rounded-4">
+            <img
+              src="assets/section7-img2.webp"
+              alt=""
+              class="rounded-circle"
+            />
+          </div>
+          <div class="swiper-slide bg-transparent partener rounded-4">
+            <img
+              src="assets/section7-img3.webp"
+              alt=""
+              class="rounded-circle"
+            />
+          </div>
+          <div class="swiper-slide bg-transparent partener rounded-4">
+            <img
+              src="assets/section7-img4.webp"
+              alt=""
+              class="rounded-circle"
+            />
+          </div>
+          <div class="swiper-slide bg-transparent partener rounded-4">
+            <img
+              src="assets/section7-img5.webp"
+              alt=""
+              class="rounded-circle"
+            />
+          </div>
+          <div class="swiper-slide bg-transparent partener rounded-4">
+            <img
+              src="assets/section7-img6.webp"
+              alt=""
+              class="rounded-circle"
+            />
+          </div>
+        </div>
+        <div class="swiper-pagination4 d-none"></div>
+      </div>
+    </section>
+
+    <section class="container my-5">
+      <h2
+        class="d-flex justify-content-center align-items-center roboto-slab fw-bold my-5"
+      >
+        From our blogs
+      </h2>
+      <div class="row">
+        <div class="col-12 col-md-4 mt-3">
+          <div
+            class="d-flex flex-column justify-content-center align-items-center overflow-hidden rounded-4 blog-card"
+          >
+            <div class="d-flex overflow-hidden">
+              <img
+                src="assets/blog-img1.webp"
+                alt=""
+                width="100%
+            "
+              />
+            </div>
+            <div
+              class="d-flex flex-column justify-content-center align-items-center px-5 py-3 gap-2"
+            >
+              <p>JAN 18, 2020</p>
+              <a href="#" class="nav-link">
+                <h5 class="roboto-slab fw-bold text-center">
+                  The Best School Supplies For Remote Learning
+                </h5>
+              </a>
+              <a href="#" class="nav-link">READ MORE</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-4 mt-3">
+          <div
+            class="d-flex flex-column justify-content-center align-items-center overflow-hidden rounded-4 blog-card"
+          >
+            <div class="d-flex overflow-hidden">
+              <img
+                src="assets/blog-img2.webp"
+                alt=""
+                width="100%
+            "
+              />
+            </div>
+            <div
+              class="d-flex flex-column justify-content-center align-items-center px-5 py-3 gap-2"
+            >
+              <p>JAN 18, 2020</p>
+              <a href="#" class="nav-link">
+                <h5 class="roboto-slab fw-bold text-center">
+                  The Best School Supplies For Remote Learning
+                </h5>
+              </a>
+              <a href="#" class="nav-link">READ MORE</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-4 mt-3">
+          <div
+            class="d-flex flex-column justify-content-center align-items-center overflow-hidden rounded-4 blog-card"
+          >
+            <div class="d-flex overflow-hidden">
+              <img
+                src="assets/blog-img3.webp"
+                alt=""
+                width="100%
+            "
+              />
+            </div>
+            <div
+              class="d-flex flex-column justify-content-center align-items-center px-5 py-3 gap-2"
+            >
+              <p>JAN 18, 2020</p>
+              <a href="#" class="nav-link">
+                <h5 class="roboto-slab fw-bold text-center">
+                  The Best School Supplies For Remote Learning
+                </h5>
+              </a>
+              <a href="#" class="nav-link">READ MORE</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex align-items-center justify-content-center my-5">
+        <button class="btn btn-outline">SEE MORE ARTICLES</button>
+      </div>
+    </section>
+
+    <section class="container my-5">
+      <h2
+        class="d-flex justify-content-center align-items-center roboto-slab fw-bold"
+      >
+        Our clients say
+      </h2>
+
+      <div class="row my-5">
+        <div class="col-12 col-md-6 mt-3">
+          <div
+            class="d-flex flex-column justify-content-center align-items-center px-5 py-5 rounded-4 gap-3 review-bg"
+          >
+            <div class="d-flex justify-content-center align-items-center">
+              <i class="fa-solid fa-star text-warning"></i>
+              <i class="fa-solid fa-star text-warning"></i>
+              <i class="fa-solid fa-star text-warning"></i>
+              <i class="fa-solid fa-star text-warning"></i>
+              <i class="fa-solid fa-star text-warning"></i>
+            </div>
+            <p class="text-center roboto review-para">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip consequat.
+            </p>
+            <div class="d-flex gap-2">
+              <img src="assets/man.webp" alt="" height="50px" />
+              <div
+                class="d-flex flex-column align-items-center justify-content-center"
+              >
+                <p class="fw-bold roboto-slab mb-0 text-start w-100">
+                  Jessica Alna
+                </p>
+                <p class="mb-0 text-start w-100">Michigan Ave, Chicago</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 mt-3">
+          <div
+            class="d-flex flex-column justify-content-center align-items-center px-5 py-5 rounded-4 gap-3 footer"
+          >
+            <div class="d-flex justify-content-center align-items-center">
+              <i class="fa-solid fa-star text-warning"></i>
+              <i class="fa-solid fa-star text-warning"></i>
+              <i class="fa-solid fa-star text-warning"></i>
+              <i class="fa-solid fa-star text-warning"></i>
+              <i class="fa-solid fa-star text-warning"></i>
+            </div>
+            <p class="text-center roboto review-para">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip consequat.
+            </p>
+            <div class="d-flex gap-2">
+              <img src="assets/women.webp" alt="" height="50px" />
+              <div
+                class="d-flex flex-column align-items-center justify-content-center"
+              >
+                <p class="fw-bold roboto-slab mb-0 text-start w-100">
+                  Jessica Alna
+                </p>
+                <p class="mb-0 text-start w-100">Michigan Ave, Chicago</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="container my-5 d-flex align-items-center justify-content-center"
+    >
+      <div class="row my-5 d-flex align-items-center justify-content-center">
+        <div class="col-12 col-sm-5 col-md-3 mt-3">
+          <div
+            class="d-flex flex-column justify-content-center align-items-center gap-2"
+          >
+            <i class="fa-solid fa-truck text-primary"></i>
+            <h4 class="fw-bold roboto-slab">Free Shipping</h4>
+            <p>Free shipping on all orders from $59</p>
+          </div>
+        </div>
+        <div class="col-12 col-sm-5 col-md-3 mt-3">
+          <div
+            class="d-flex flex-column justify-content-center align-items-center gap-2"
+          >
+            <i class="fa-solid fa-credit-card text-primary"></i>
+            <h4 class="fw-bold roboto-slab">Free Shipping</h4>
+            <p>Free shipping on all orders from $59</p>
+          </div>
+        </div>
+        <div class="col-12 col-sm-5 col-md-3 mt-3">
+          <div
+            class="d-flex flex-column justify-content-center align-items-center gap-2"
+          >
+            <i class="fa-solid fa-gift text-primary"></i>
+            <h4 class="fw-bold roboto-slab">Free Shipping</h4>
+            <p>Free shipping on all orders from $59</p>
+          </div>
+        </div>
+        <div class="col-12 col-sm-5 col-md-3 mt-3">
+          <div
+            class="d-flex flex-column justify-content-center align-items-center gap-2"
+          >
+            <i class="fa-solid fa-message text-primary"></i>
+            <h4 class="fw-bold roboto-slab">Free Shipping</h4>
+            <p>Free shipping on all orders from $59</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer
+      class="d-flex justify-content-center align-items-center flex-column footer"
+    >
+      <div class="container d-flex justify-content-center align-items-center">
+        <div
+          class="d-flex py-5 justify-content-between align-items-center w-100 flex-column flex-sm-row"
+        >
+          <div class="d-flex flex-wrap">
+            <a href="#" class="nav-link">
+              <img
+                src="https://eduma.thimpress.com/demo-ecommerce/wp-content/uploads/sites/100/2023/09/Logo.svg"
+                alt=""
+              />
+            </a>
+          </div>
+          <div
+            class="d-flex justify-content-center align-items-center flex-column flex-lg-row mt-5 mt-sm-0 flex-wrap"
+          >
+            <h6 class="roboto-slab fw-bold mx-2">
+              Subscribe And Get 20% Off Your First Purchase.
+            </h6>
+            <div
+              class="d-flex justify-content-center align-items-center flex-wrap rounded-2 border1"
+            >
+              <form
+                action="#"
+                class="d-flex justify-content-center align-items-center flex-wrap"
+              >
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Enter your email"
+                  class="py-2 px-5 border-0 outline-none"
+                />
+                <div class="d-flex justify-content-start ali">
+                  <button type="submit" class="btn subscribe-btn fw-bold">
+                    SUBSCRIBE
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr class="container" />
+      <div class="container mb-5 py-4">
+        <div class="row">
+          <div class="col-12 col-md-4 col-lg-4 mt-5">
+            <div
+              class="d-flex flex-column align-items-center justify-content-center"
+            >
+              <h5 class="roboto-slab w-100 text-start">Need Help!</h5>
+              <p class="text-start w-100">
+                We Promise We’ll Get Back To You Promptly Your Gifting Needs Are
+                Always On Our Minds!
+              </p>
+              <div class="d-flex w-100 text-center align-items-center mb-1">
+                <i class="fa-solid fa-phone text-primary"></i>
+                <p class="mb-0 mx-2">Hotline: +1 515 323 6290</p>
+              </div>
+              <div class="d-flex w-100 text-center align-items-center">
+                <i class="fa-regular fa-clock text-primary"></i>
+                <div class="d-flex flex-column">
+                  <p class="mb-1 mx-2 text-start w-100">
+                    Monday – Friday: 9:00-20:00
+                  </p>
+                  <p class="mb-1 mx-2 text-start w-100">
+                    Saturday: 11:00 – 15:00
+                  </p>
+                </div>
+              </div>
+              <div class="d-flex w-100 text-center align-items-center mb-1">
+                <i class="fa-regular fa-envelope text-primary"></i>
+                <p class="mb-0 mx-2">Email: support@gmail.com</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-4 col-lg-2 mt-5">
+            <div class="d-flex flex-column">
+              <h5 class="roboto-slab w-100 text-start">Company</h5>
+              <div class="d-flex flex-column">
+                <ul class="m-0 p-0 d-flex flex-column gap-2">
+                  <li class="list-unstyled">
+                    <a href="#" class="footer-link"> About Us </a>
+                  </li>
+                  <li class="list-unstyled">
+                    <a href="#" class="footer-link"> Store Reviews </a>
+                  </li>
+                  <li class="list-unstyled">
+                    <a href="#" class="footer-link"> Operation Status </a>
+                  </li>
+                  <li class="list-unstyled">
+                    <a href="#" class="footer-link"> FAQs </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-4 col-lg-2 mt-5">
+            <div class="d-flex flex-column">
+              <h5 class="roboto-slab w-100 text-start">Gift Cards</h5>
+              <div class="d-flex flex-column">
+                <ul class="m-0 p-0 d-flex flex-column gap-2">
+                  <li class="list-unstyled">
+                    <a href="#" class="footer-link"> Purchase Gift Card </a>
+                  </li>
+                  <li class="list-unstyled">
+                    <a href="#" class="footer-link"> Redeem Gift Card </a>
+                  </li>
+                  <li class="list-unstyled">
+                    <a href="#" class="footer-link"> Gift Card FAQs </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-4 col-lg-2 mt-5">
+            <div class="d-flex flex-column">
+              <h5 class="roboto-slab w-100 text-start">Follow Us</h5>
+              <div class="d-flex flex-column">
+                <ul class="m-0 p-0 d-flex flex-column gap-2">
+                  <li class="list-unstyled">
+                    <a href="#" class="footer-link"> Facebook </a>
+                  </li>
+                  <li class="list-unstyled">
+                    <a href="#" class="footer-link"> Pinterest </a>
+                  </li>
+                  <li class="list-unstyled">
+                    <a href="#" class="footer-link"> Instagram </a>
+                  </li>
+                  <li class="list-unstyled">
+                    <a href="#" class="footer-link"> TikTok </a>
+                  </li>
+                  <li class="list-unstyled">
+                    <a href="#" class="footer-link"> YouTube </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-4 col-lg-2 mt-5">
+            <div class="d-flex flex-column">
+              <h5 class="roboto-slab w-100 text-start fw-bold">
+                Custom Services
+              </h5>
+              <div class="d-flex flex-column">
+                <ul class="m-0 p-0 d-flex flex-column gap-2">
+                  <li class="list-unstyled">
+                    <a href="#" class="footer-link"> Delivery </a>
+                  </li>
+                  <li class="list-unstyled">
+                    <a href="#" class="footer-link"> Returns and complaints </a>
+                  </li>
+                  <li class="list-unstyled">
+                    <a href="#" class="footer-link"> Cookie Policy </a>
+                  </li>
+                  <li class="list-unstyled">
+                    <a href="#" class="footer-link"> Pixel disclaimer </a>
+                  </li>
+                  <li class="list-unstyled">
+                    <a href="#" class="footer-link"> Competition Terms </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr class="container" />
+      <div
+        class="d-flex justify-content-between align-items-center w-100 container py-3"
+      >
+        <p class="roboto">Copyright © 2023, Eduma Powered by ThimPress</p>
+        <div class="d-flex gap-3 flex-column flex-sm-row">
+          <div class="d-flex gap-3">
+            <img src="assets/master-card.webp" alt="" />
+            <img src="assets/pay.webp" alt="" />
+          </div>
+          <div class="d-flex gap-3">
+            <img src="assets/paypal.webp" alt="" />
+            <img src="assets/visa.webp" alt="" />
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var swiper = new Swiper(".mySwiper1", {
+          pagination: {
+            el: ".swiper-pagination",
+          },
+        });
+
+        var swiper2 = new Swiper(".mySwiper2", {
+          slidesPerView: 6,
+          spaceBetween: 30,
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+          },
+        });
+        var swiper3 = new Swiper(".mySwiper3", {
+          slidesPerView: 3,
+          spaceBetween: 30,
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+          },
+        });
+        var swiper4 = new Swiper(".mySwiper4", {
+          slidesPerView: 4,
+          spaceBetween: 30,
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+          },
+        });
+      });
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/5844408008.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
